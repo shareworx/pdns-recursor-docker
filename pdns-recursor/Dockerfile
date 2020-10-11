@@ -34,8 +34,8 @@ ENV QUERY_LOCAL_ADDRESS=
 ENV SERVER_ID=
 
 
-COPY ./entrypoint.sh /
+#COPY ./entrypoint.sh /
 
 #ENTRYPOINT [ "/entrypoint.sh" ]
 
-CMD "/bin/sh -c pdns_recursor --max-negative-ttl=${MAX_NEGATIVE_TTL} --allow-from=${NETWORKS} --local-address=${LOCAL_ADDRESS} --query-local-address=${QUERY_LOCAL_ADDRESS} --server-id=${SERVER_ID}"]
+CMD [ "/bin/sh", "-c", "pdns_recursor --max-negative-ttl=${MAX_NEGATIVE_TTL} --allow-from=${NETWORKS} --local-address=${LOCAL_ADDRESS} --query-local-address=${QUERY_LOCAL_ADDRESS} --server-id=${SERVER_ID}" ]
