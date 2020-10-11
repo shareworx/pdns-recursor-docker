@@ -1,8 +1,18 @@
 FROM ubuntu:20.04
 
+RUN set -ex ln -fs /usr/share/zoneinfo/Europ/Berlin /etc/localtime
+
+RUN set -ex \
+    && export DEBIAN_FRONTEND=noninteractive \
+	&& apt-get update \
+	&& apt-get install -y --no-install-recommends tzdata
+
+RUN set -ex \
+    dpkg-reconfigure --frontend noninteractive tzdata
+
 RUN set -ex \
 	# Prepare for adding repository
-	&& apt-get update \
+#	&& apt-get update \
 	&& apt-get install -y dnsdist dnsutils
 
 # RUN echo 'deb [arch=amd64] http://repo.powerdns.com/ubuntu bionic-auth-43 main' \
