@@ -22,11 +22,9 @@ RUN set -ex \
 #RUN rm -rf /etc/powerdns/
 #VOLUME [ "/etc/powerdns" ] 
 
-RUN sed -i -e "s/# dnssec=process-no-validate/dnssec=validate/g" /etc/powerdns/recursor.conf
-
 EXPOSE 53/tcp
-EXPOSE 853/tcp
 EXPOSE 53/udp
+EXPOSE 853/tcp
 
 COPY ./dnsdist.conf /etc/
 COPY ./entrypoint.sh /
