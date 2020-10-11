@@ -39,6 +39,6 @@ EXPOSE 853/tcp
 COPY ./dnsdist.conf /etc/
 COPY ./entrypoint.sh /
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+#ENTRYPOINT [ "/entrypoint.sh" ]
 
-CMD [ "dnsdist", "-C", "/etc/dnsdist.conf", "--local=0.0.0.0:53" ]
+CMD [ "/bin/sh", "-c", "dnsdist -C /etc/dnsdist.conf --local=0.0.0.0:53" ]
