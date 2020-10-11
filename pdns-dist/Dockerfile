@@ -34,11 +34,11 @@ RUN set -ex \
 
 EXPOSE 53/tcp
 EXPOSE 53/udp
-EXPOSE 853/tcp
+#EXPOSE 853/tcp
 
-COPY ./dnsdist.conf /etc/
+COPY ./dnsdist.conf /etc/dnsdist/
 COPY ./entrypoint.sh /
 
 #ENTRYPOINT [ "/entrypoint.sh" ]
 
-CMD [ "/bin/sh", "-c", "dnsdist -C /etc/dnsdist.conf --local=0.0.0.0:53" ]
+CMD [ "/bin/sh", "-c", "/usr/bin/dnsdist" ]
