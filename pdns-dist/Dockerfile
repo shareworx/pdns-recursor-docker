@@ -41,4 +41,4 @@ COPY ./entrypoint.sh /
 
 #ENTRYPOINT [ "/entrypoint.sh" ]
 
-CMD [ "/bin/sh", "-c", "/usr/bin/dnsdist" ]
+CMD [ "/bin/sh", "-c", "/usr/bin/dnsdist", "--supervised", "--disable-syslog" ]
